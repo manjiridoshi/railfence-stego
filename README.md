@@ -1,116 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rail Fence Cipher Decryptor | Manjiri</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(to right, #282c34, #3a3f47);
-      color: #fff;
-      text-align: center;
-      padding-top: 80px;
-    }
-    h1 {
-      color: #61dafb;
-      margin-bottom: 10px;
-    }
-    .container {
-      background: #1e2229;
-      display: inline-block;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(97, 218, 251, 0.4);
-    }
-    input, textarea, button {
-      width: 280px;
-      margin: 8px 0;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    input, textarea {
-      background: #333841;
-      color: #fff;
-    }
-    button {
-      background: #61dafb;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    button:hover {
-      background: #4fb8d6;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🔐 Rail Fence Decryption Tool</h1>
-    <p>Developed by <strong>Manjiri</strong> | M.Tech Cyber Security |</p>
-    <input type="text" id="cipher" placeholder="Enter ciphertext"><br>
-    <input type="number" id="rails" placeholder="Enter number of rails"><br>
-    <button onclick="decrypt()">🔓 Decrypt</button>
-    <h3>Decrypted Message:</h3>
-    <textarea id="output" rows="3" readonly></textarea>
-  </div>
+# 🔐 Rail Fence Cipher + Image Steganography  
+**Cryptography Practical #5 – M.Tech Cyber Security (RRU)**  
 
-  <footer>
-    <p>Rail Fence Transposition Cipher • Cryptography Practical #5</p>
-  </footer>
+---
 
-  <script>
-    // --- Rail Fence Decryption Logic ---
-    function decrypt() {
-      const text = document.getElementById('cipher').value.trim();
-      const rails = parseInt(document.getElementById('rails').value);
-      if (!text || !rails || rails < 2) {
-        alert("Please enter valid ciphertext and number of rails!");
-        return;
-      }
+## 🎯 Objective
+To understand the **Rail Fence Transposition Cipher** and implement it in **Python** with **Image Steganography (LSB method)**, along with a **web-based decryption tool** hosted on GitHub Pages.
 
-      const len = text.length;
-      const rail = Array.from({ length: rails }, () => Array(len).fill('\n'));
-      let dir_down = null, row = 0;
+---
 
-      // Mark the positions
-      for (let i = 0; i < len; i++) {
-        if (row === 0) dir_down = true;
-        if (row === rails - 1) dir_down = false;
-        rail[row][i] = '*';
-        row += dir_down ? 1 : -1;
-      }
+## 🧠 Concepts Covered
+- Rail Fence transposition cipher (zigzag pattern encryption)
+- Encryption and decryption functions with variable rail count  
+- Image steganography (LSB embedding and extraction)
+- Web-based decryption using HTML + JavaScript
+- GitHub Pages deployment for cryptography visualization
 
-      // Fill the rail matrix with ciphertext
-      let index = 0;
-      for (let i = 0; i < rails; i++) {
-        for (let j = 0; j < len; j++) {
-          if (rail[i][j] === '*' && index < len) {
-            rail[i][j] = text[index++];
-          }
-        }
-      }
+---
 
-      // Read the message following zigzag pattern
-      let result = '';
-      row = 0; dir_down = null;
-      for (let i = 0; i < len; i++) {
-        if (row === 0) dir_down = true;
-        if (row === rails - 1) dir_down = false;
-        result += rail[row][i];
-        row += dir_down ? 1 : -1;
-      }
+## ⚙️ Project Files
 
-      document.getElementById('output').value = result;
-    }
-  </script>
-</body>
-</html>
+| File | Description |
+|------|--------------|
+| `railfence_stego.py` | Python program for encryption + LSB steganography |
+| `decrypt.html` | Web-based Rail Fence Decryptor hosted on GitHub Pages |
+| `README.md` | Documentation and usage instructions |
+
+---
+
+## 🧩 Rail Fence Cipher Example
+
+Plaintext:  
