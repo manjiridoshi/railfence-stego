@@ -55,7 +55,7 @@
 <body>
   <div class="container">
     <h1>🔐 Rail Fence Decryption Tool</h1>
-    <p>Developed by <strong>Manjiri</strong> | M.Tech Cyber Security | RRU</p>
+    <p>Developed by <strong>Manjiri</strong> | M.Tech Cyber Security |</p>
     <input type="text" id="cipher" placeholder="Enter ciphertext"><br>
     <input type="number" id="rails" placeholder="Enter number of rails"><br>
     <button onclick="decrypt()">🔓 Decrypt</button>
