@@ -30,3 +30,30 @@ To understand the **Rail Fence Transposition Cipher** and implement it in **Pyth
 ## 🧩 Rail Fence Cipher Example
 
 Plaintext:  
+Rails:  
+Zigzag pattern:
+Ciphertext:  
+
+---
+
+## 🖼️ Image Stego Example
+
+1. Input image: `logo.png`  
+2. Encrypted text: `MJRANII`  
+3. Output stego image: `stego.png`
+
+The ciphertext is hidden inside the image pixels using LSB (Least Significant Bit) modification.
+
+---
+
+## 🧪 Run Locally (Python Encryption)
+
+```bash
+# Install dependencies
+pip install pillow
+
+# Run program
+python railfence_stego.py
+
+
+
